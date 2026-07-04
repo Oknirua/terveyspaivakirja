@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Terveyspäiväkirja</title>
+
+  <!-- PWA / iOS Home Screen support -->
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Päiväkirja">
+  <meta name="theme-color" content="#0b4f8a">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Live region: VoiceOver announces messages placed here (e.g. empty-save error). -->
+  <div id="ilmoitus" class="visually-hidden" role="alert"></div>
+
+  <main>
+
+    <!-- HOME -->
+    <section id="nakyma-koti" class="nakyma">
+      <h1 tabindex="-1">Terveyspäiväkirja</h1>
+      <button id="btn-ruoka" type="button">Lisää ruokamerkintä</button>
+      <button id="btn-liikunta" type="button">Lisää liikuntamerkintä</button>
+      <button id="btn-uni" type="button">Lisää unimerkintä</button>
+      <button id="btn-oireet" type="button">Lisää oiremerkintä</button>
+      <button id="btn-tanaan" type="button">Tämän päivän merkinnät</button>
+      <button id="btn-vienti" type="button">Vie kuukausitiedostot</button>
+    </section>
+
+    <!-- ENTRY SCREEN (shared by all categories; heading changes per category) -->
+    <section id="nakyma-merkinta" class="nakyma" hidden>
+      <div class="ylapalkki">
+        <button id="btn-peruuta" type="button">Peruuta</button>
+        <button id="btn-tallenna" type="button">Tallenna</button>
+      </div>
+      <h1 id="merkinta-kysymys" tabindex="-1"></h1>
+      <textarea id="merkinta-teksti" aria-labelledby="merkinta-kysymys"
+                rows="7" autocapitalize="sentences" autocomplete="off"></textarea>
+    </section>
+
+    <!-- SYMPTOMS MENU (buttons are generated from the OIREET array in app.js) -->
+    <section id="nakyma-oireet" class="nakyma" hidden>
+      <div class="ylapalkki">
+        <button id="btn-oireet-takaisin" type="button">Takaisin</button>
+      </div>
+      <h1 tabindex="-1">Oireet</h1>
+      <div id="oireet-lista"></div>
+    </section>
+
+    <!-- TODAY'S ENTRIES (read only) -->
+    <section id="nakyma-tanaan" class="nakyma" hidden>
+      <div class="ylapalkki">
+        <button id="btn-tanaan-takaisin" type="button">Takaisin</button>
+      </div>
+      <h1 tabindex="-1">Tämän päivän merkinnät</h1>
+      <ul id="tanaan-lista"></ul>
+      <p id="tanaan-tyhja" hidden>Ei merkintöjä tänään.</p>
+    </section>
+
+    <!-- MONTHLY EXPORT -->
+    <section id="nakyma-vienti" class="nakyma" hidden>
+      <div class="ylapalkki">
+        <button id="btn-vienti-takaisin" type="button">Takaisin</button>
+      </div>
+      <h1 tabindex="-1">Vie kuukausitiedostot</h1>
+      <div id="vienti-lista"></div>
+      <p id="vienti-tyhja" hidden>Ei vietäviä merkintöjä.</p>
+      <button id="btn-vie-kaikki" type="button" hidden>Vie kaikki merkinnät (JSON)</button>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
