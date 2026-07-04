@@ -23,7 +23,8 @@ const FILE_PREFIX = "terveyspaivakirja";
 const LUOKAT = {
   ruoka:    { nimi: "Ruoka",    kysymys: "Mitä olet syönyt?" },
   liikunta: { nimi: "Liikunta", kysymys: "Mitä liikuntaa olet harrastanut?" },
-  uni:      { nimi: "Uni",      kysymys: "Miten nukuit?" }
+  uni:      { nimi: "Uni",      kysymys: "Miten nukuit?" },
+  laakkeet: { nimi: "Lääkkeet", kysymys: "Kerro käytössä olevista lääkkeistä tai lääkemuutoksista." }
 };
 
 // Symptom list. To add or change symptoms, edit this array only.
@@ -31,7 +32,8 @@ const OIREET = [
   { nimi: "Käsien ihottuma", kysymys: "Kerro käsien ihottumasta." },
   { nimi: "Kehon turvotus",  kysymys: "Kerro kehon turvotuksesta." },
   { nimi: "Ilmavaivat",      kysymys: "Kerro ilmavaivoista." },
-  { nimi: "Kehon kipu",      kysymys: "Kerro kehon kivusta." }
+  { nimi: "Kehon kipu",      kysymys: "Kerro kehon kivusta." },
+  { nimi: "Hengitystieoireet", kysymys: "Kerro hengitystieoireista." }
 ];
 
 const KUUKAUDET = [
@@ -185,6 +187,8 @@ document.getElementById("btn-liikunta").addEventListener("click",
 document.getElementById("btn-uni").addEventListener("click",
   () => avaaMerkinta(LUOKAT.uni, naytaKoti));
 document.getElementById("btn-oireet").addEventListener("click", naytaOireet);
+document.getElementById("btn-laakkeet").addEventListener("click",
+  () => avaaMerkinta(LUOKAT.laakkeet, naytaKoti));
 document.getElementById("btn-tanaan").addEventListener("click", naytaTanaan);
 document.getElementById("btn-vienti").addEventListener("click", naytaVienti);
 
