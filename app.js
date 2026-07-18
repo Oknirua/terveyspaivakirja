@@ -24,7 +24,8 @@ const LUOKAT = {
   ruoka:    { nimi: "Ruoka",    kysymys: "Mitä olet syönyt?" },
   liikunta: { nimi: "Liikunta", kysymys: "Mitä liikuntaa olet harrastanut?" },
   uni:      { nimi: "Uni",      kysymys: "Miten nukuit?" },
-  laakkeet: { nimi: "Lääkkeet", kysymys: "Kerro käytössä olevista lääkkeistä tai lääkemuutoksista." }
+  laakkeet: { nimi: "Lääkkeet", kysymys: "Kerro käytössä olevista lääkkeistä tai lääkemuutoksista." },
+  paivakirja: { nimi: "Päiväkirja", kysymys: "Kerro päivän tapahtumista." }
 };
 
 // Symptom list. To add or change symptoms, edit this array only.
@@ -189,6 +190,8 @@ document.getElementById("btn-uni").addEventListener("click",
 document.getElementById("btn-oireet").addEventListener("click", naytaOireet);
 document.getElementById("btn-laakkeet").addEventListener("click",
   () => avaaMerkinta(LUOKAT.laakkeet, naytaKoti));
+document.getElementById("btn-paivakirja").addEventListener("click",
+  () => avaaMerkinta(LUOKAT.paivakirja, naytaKoti));
 document.getElementById("btn-tanaan").addEventListener("click", naytaTanaan);
 document.getElementById("btn-vienti").addEventListener("click", naytaVienti);
 

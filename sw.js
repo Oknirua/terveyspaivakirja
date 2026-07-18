@@ -4,7 +4,7 @@
  * Bump CACHE_NAME whenever any app file changes.
  */
 
-const CACHE_NAME = "terveyspaivakirja-v2";
+const CACHE_NAME = "terveyspaivakirja-v3";
 
 const ASSETS = [
   "./",
